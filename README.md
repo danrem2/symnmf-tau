@@ -39,6 +39,7 @@ Given `n` datapoints, SymNMF builds a similarity graph and factorizes it:
 | `kmeans.py` | K-means clustering, returns a label for each point |
 | `setup.py` | Builds the `symnmfmodule` extension |
 | `Makefile` | Builds the `symnmf` executable |
+| `tests/` | Reference implementation, test inputs and the test runner |
 
 ## Requirements
 
@@ -91,6 +92,16 @@ Invalid input prints `Incorrect number of clusters!` (bad `k`) or `An Error Has 
 (anything else) and exits with code 1.
 
 ## Testing
+
+```bash
+python3 tests/run_tests.py
+```
+
+This builds the project and runs 46 checks, exiting with 0 only if all of them pass.
+`tests/oracle.py` is an independent numpy implementation of the algorithm, and
+`tests/data/` holds the inputs, including malformed files for the error paths.
+
+The suite and the wider verification behind it cover:
 
 - An independent numpy implementation of every formula, compared against both the C and
   the Python outputs.
