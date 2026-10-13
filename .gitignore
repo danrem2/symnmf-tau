@@ -1,0 +1,6 @@
+# Build artefacts
+symnmf
+*.o
+*.so
+build/
+__pycache__/
